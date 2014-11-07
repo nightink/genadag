@@ -1,0 +1,13 @@
+{
+  "strict": true,
+  "quotmark": "single",
+  "undef": true,
+  "asi": false,
+  "maxlen": 120,
+  "esnext": true,
+  "noyield": true,
+  "mocha": true,
+  "node": true,
+  "expr": true,
+  "sub": true
+}
