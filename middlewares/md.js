@@ -37,8 +37,8 @@ module.exports = function (options) {
     try {
       r = yield [getLayout(), getContent(filepath)];
     } catch (err) {
-      console.log(err);
       if (err.code === 'ENOENT') {
+        console.log(err);
         return null;
       }
       throw err;
@@ -60,6 +60,7 @@ module.exports = function (options) {
       return cacheLayout;
     }
     var layout = yield fs.readFile(options.layout, 'utf8');
+    cacheLayout = layout;
     return layout;
   }
 
@@ -79,9 +80,8 @@ module.exports = function (options) {
     if (this.method !== 'GET' || this.path === '/favicon.ico') {
       return yield next;
     }
-    var pathname = this.path;
 
-    pathname = path.join(options.root, pathname + '.md');
+    var pathname = path.join(options.root, this.path + '.md');
     // generate html
     var html = yield getPage(pathname);
     if (html === null) {

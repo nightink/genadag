@@ -4,7 +4,7 @@
 module.exports = function cdnProxy(options) {
   if(!options.proxyUrl) return noop;
 
-  return function* cdnProxy(next) {
+  return function * cdnProxy(next) {
     if (this.path === '/favicon.ico' || this.status !== 404) {
       return yield* next;
     }
@@ -20,7 +20,7 @@ module.exports = function cdnProxy(options) {
 };
 
 function* noop(next) {
-  yield* next
+  yield* next;
 }
 
 var STATIC_FILE_EXT_RE = /\.(js|css|jpg|png|gif|jpeg|webp|bmp|ico)$/i;
