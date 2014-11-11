@@ -1,7 +1,7 @@
 'use strict';
 
 // js proxy
-module.exports = function cdnProxy(options) {
+module.exports = function cdnProxy(options, app) {
   if(!options.proxyUrl) return noop;
 
   return function * cdnProxy(next) {

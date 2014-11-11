@@ -1,4 +1,3 @@
-// Thank dead_horse<dead_horse@qq.com> koa-markdown
 
 'use strict';
 
@@ -13,7 +12,7 @@ var fs = require('co-fs');
 var cachePages = {};
 var cacheLayout;
 
-module.exports = function (options) {
+module.exports = function getPage(options, app) {
   if (!options || !options.root || !options.baseUrl) {
     throw new Error('options.root and options.baseUrl required');
   }
