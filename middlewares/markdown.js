@@ -13,13 +13,12 @@ var cachePages = {};
 var cacheLayout;
 
 module.exports = function getPage(options, app) {
-  if (!options || !options.root || !options.baseUrl) {
-    throw new Error('options.root and options.baseUrl required');
+  if (!options || !options.root) {
+    throw new Error('options.root required');
   }
 
-  options.baseUrl = options.baseUrl.replace(/\/$/, '');
   options.layout = options.layout || path.join(__dirname, 'layout.html');
-  options.cache = options.cache === false ? false : true;
+  options.cache = !!options.cache;
   options.titleHolder = options.titleHolder || '{title}';
   options.bodyHolder = options.bodyHolder || '{body}';
   options.indexName = options.indexName || 'index';
@@ -32,6 +31,7 @@ module.exports = function getPage(options, app) {
     if (options.cache && filepath in cachePages) {
       return cachePages[filepath];
     }
+
     var r;
     try {
       r = yield [getLayout(), getContent(filepath)];
@@ -46,7 +46,7 @@ module.exports = function getPage(options, app) {
     var layout = r[0];
     var content = r[1];
     var html = layout.replace(options.titleHolder, content.title)
-      .replace(options.bodyHolder, content.body);
+                    .replace(options.bodyHolder, content.body);
 
     if (options.cache) {
       cachePages[filepath] = html;

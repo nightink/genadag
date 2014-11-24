@@ -30,5 +30,5 @@ for(var md in middlewares) {
 }
 
 ss.listen(program.port, function() {
-  console.log('server start.');
+  console.log('server start. port: %s', program.port);
 });
