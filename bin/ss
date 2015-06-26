@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var program = require('commander');
+program
+  .option('-c, --no-cache', 'cache markdown html')
+  .option('-u, --proxyUrl', 'static proxy url')
+  .option('-p, --port [port]', 'serve port', Number, 3000)
+  .parse(process.argv);
+
+program.cwd = process.cwd();
+
+var app = require('..')(program);
+
+app.post('/test', function* () {
+  var body = this.request.body;
+  console.log('response body: ' + body);
+  this.body = body;
+});
+
+app.listen(program.port, function() {
+  console.log('server start. port: %s', program.port);
+});

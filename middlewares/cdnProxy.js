@@ -4,7 +4,7 @@
 module.exports = function cdnProxy(options, app) {
   if(!options.proxyUrl) return noop;
 
-  return function * cdnProxy(next) {
+  return function* cdnProxy(next) {
     if (this.path === '/favicon.ico' || this.status !== 404) {
       return yield* next;
     }

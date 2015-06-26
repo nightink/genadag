@@ -1,25 +1,30 @@
 {
   "name": "ss",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "simple serve",
   "keywords": ["serve", "markdown"],
-  "author": "Nightink<chceyes@gmail.com>",
+  "author": "nightink<chceyes@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Nightink/ss.git" 
+    "url": "git://github.com/nightink/ss.git"
   },
-  "bin": "index.js",
+  "main": "index.js",
+  "bin": "./bin/ss",
   "dependencies": {
     "commander": "~2.3.0",
     "co-fs": "~1.1.1",
-    "koa": "~0.9.0",
+    "koa": "~0.13.0",
     "koa-static": "1.4.6",
+    "koa-router": "~4.3.2",
     "marked": "0.3.1",
     "highlight.js": "*"
   },
   "devDependencies": {
     "mocha": "*",
-    "should": "*"
+    "should": "*",
+    "supertest": "1"
   },
-  "main": "index.js"
+  "scripts": {
+    "test": "mocha --require should --reporter spec"
+  }
 }
