@@ -13,12 +13,6 @@ program.cwd = process.cwd();
 
 var app = require('..')(program);
 
-app.post('/test', function* () {
-  var body = this.request.body;
-  console.log('response body: ' + body);
-  this.body = body;
-});
-
 app.listen(program.port, function() {
   console.log('server start. port: %s', program.port);
 });

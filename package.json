@@ -14,12 +14,14 @@
     "commander": "~2.3.0",
     "co-fs": "~1.1.1",
     "koa": "~0.13.0",
+    "koa-bodyparser": "~2.0.0",
     "koa-static": "1.4.6",
     "koa-router": "~4.3.2",
     "marked": "0.3.1",
     "highlight.js": "*"
   },
   "devDependencies": {
+    "debug": "*",
     "mocha": "*",
     "should": "*",
     "supertest": "1"

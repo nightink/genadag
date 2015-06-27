@@ -12,7 +12,7 @@ var fs = require('co-fs');
 var cachePages = {};
 var cacheLayout;
 
-module.exports = function getPage(options, app) {
+module.exports = function(options, app) {
   if (!options || !options.root) {
     throw new Error('options.root required');
   }
@@ -27,7 +27,7 @@ module.exports = function getPage(options, app) {
     marked.setOptions(options.markedOpts);
   }
 
-  function * getPage(filepath) {
+  function* getPage(filepath) {
     if (options.cache && filepath in cachePages) {
       return cachePages[filepath];
     }

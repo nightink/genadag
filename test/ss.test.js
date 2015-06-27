@@ -1,16 +1,16 @@
 'use strict';
 
+var debug = require('debug')('ss:test');
+var request = require('supertest');
+
 var app = require('..')({
   proxyUrl: false,
   cwd: process.cwd()
 });
 
-var request = require('supertest');
-
 app.post('/test', function* () {
   var body = this.request.body;
-  console.log(this.request, this.query);
-  console.log('response body: ' + body);
+  debug('response body: %o', body);
   this.body = body;
 });
 
@@ -19,9 +19,9 @@ describe('something', function(){
     request(app.callback())
       .post('/test')
       .set('Accept', 'application/json')
-      .send({ a: '1', b: '2' })
-      // .field('a', '1')
-      // .expect({ a: '1' })
+      // .send({ a: '1', b: '2' })
+      .field('a', '1')
+      .expect({ a: '1' })
       .expect(200, done);
   });
 });

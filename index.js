@@ -2,9 +2,11 @@
 
 var join = require('path').join;
 
+var debug = require('debug')('ss');
 var koa = require('koa');
 var ks = require('koa-static');
 var Router = require('koa-router');
+var bodyParser = require('koa-bodyparser');
 
 module.exports = function(program) {
 
@@ -12,8 +14,11 @@ module.exports = function(program) {
 
   var app = koa();
   var routerMiddleware = new Router(app);
-  routerMiddleware.methods.push('HEAD');
+
+  app.use(bodyParser());
   app.use(ks(program.cwd));
+
+  routerMiddleware.methods.push('HEAD');
   app.use(routerMiddleware.middleware());
 
   // loader middleware
@@ -21,9 +26,9 @@ module.exports = function(program) {
     try {
       var options = middlewares[md];
       app.use(require('./middlewares/' + md)(options, app));
-      console.log('[middleware] loader %s middleware, option ', md, options);
+      debug('[middleware] loader %s middleware, option: %o', md, options);
     } catch(e) {
-      console.error('[middleware] loader error, error stack \n %s', e.stack);
+      debug('[middleware] loader error, error stack \n %s', e.stack);
     }
   }
 
