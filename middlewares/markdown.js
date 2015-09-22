@@ -54,7 +54,7 @@ module.exports = function(options, app) {
     return html;
   }
 
-  function * getLayout() {
+  function* getLayout() {
     if (options.cache && cacheLayout) {
       return cacheLayout;
     }
@@ -63,7 +63,7 @@ module.exports = function(options, app) {
     return layout;
   }
 
-  function * getContent(filepath) {
+  function* getContent(filepath) {
     var content = yield fs.readFile(filepath, 'utf8');
     var title = content.slice(0, content.indexOf('\n')).trim()
                   .replace(/^[#\s]+/, '')
@@ -75,7 +75,7 @@ module.exports = function(options, app) {
     };
   }
 
-  return function * markdown(next) {
+  return function* markdown(next) {
     if (this.method !== 'GET' || this.path === '/favicon.ico') {
       return yield next;
     }

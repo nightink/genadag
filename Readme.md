@@ -4,15 +4,16 @@
   simple serve
 
 # install
-```js
+
+```bash
 npm install -g ss
 ```
 
-## License 
+## License
 
 (The MIT License)
 
-Copyright (c) 2014 HC Chen &lt;chceyes@gmail.com&gt;
+Copyright (c) 2015 nightink &lt;chceyes@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -22,15 +22,15 @@ module.exports = function(program) {
   app.use(routerMiddleware.middleware());
 
   // loader middleware
-  for(var md in middlewares) {
+  Object.keys(middlewares).forEach(function(mid) {
     try {
-      var options = middlewares[md];
+      var options = middlewares[mid];
       app.use(require('./middlewares/' + md)(options, app));
       debug('[middleware] loader %s middleware, option: %o', md, options);
     } catch(e) {
       debug('[middleware] loader error, error stack \n %s', e.stack);
     }
-  }
+  });
 
   return app;
 };

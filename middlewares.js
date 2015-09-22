@@ -7,8 +7,8 @@ module.exports = function(program) {
       proxyUrl: program.proxyUrl
     },
     markdown: {
-      root: process.cwd(),
-      baseUrl: process.cwd(),
+      root: program.cwd,
+      baseUrl: program.cwd,
       cache: program.cache,
       markedOpts: {
         gfm: true,
@@ -16,6 +16,7 @@ module.exports = function(program) {
           return require('highlight.js').highlightAuto(code).value;
         }
       }
-    }
+    },
+    poweredBy: {}
   };
 };
