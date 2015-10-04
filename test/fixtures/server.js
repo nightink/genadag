@@ -2,7 +2,9 @@
 
 var debug = require('debug')('ss:test:fixtures:server');
 
-var app = require('../../');
+var app = require('../../')({
+  cwd: process.cwd()
+});
 
 app.get('/', function* () {
   this.body = '/';
@@ -14,10 +16,9 @@ app.get('/a', function* () {
 
 app.redirect('/b', 'www.baidu.com', 302);
 
-app.listen(3000);
-
 app.ready(function() {
-  app.listen(3000, function() {
-    console.log('server start. port: %s', 3000);
+  console.log('[work] server ready.');
+  app.listen(8001, function() {
+    console.log('[work] server start. port: %s', 8001);
   });
 });

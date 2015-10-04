@@ -2,19 +2,8 @@
 
 'use strict';
 
-var program = require('commander');
-program
-  .option('-c, --no-cache', 'cache markdown html')
-  .option('-u, --proxyUrl [url]', 'static proxy url')
-  .option('-p, --port [port]', 'serve port', Number, 8001)
-  .parse(process.argv);
+const master = require('../lib/cluster');
 
-program.cwd = process.cwd();
-
-var app = require('..')(program);
-
-app.ready(function() {
-  app.listen(program.port, function() {
-    console.log('server start. port: %s', program.port);
-  });
-});
+master.startCluster({
+  cwd: process.cwd()
+})
