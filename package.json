@@ -1,24 +1,29 @@
 {
   "name": "ss",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "simple serve",
-  "keywords": ["serve", "markdown"],
+  "keywords": [
+    "serve",
+    "markdown"
+  ],
   "author": "nightink<chceyes@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/nightink/ss.git"
   },
-  "main": "index.js",
-  "bin": "./bin/ss",
+  "main": "lib/index.js",
+  "bin": "bin/ss",
   "dependencies": {
-    "commander": "~2.3.0",
     "co-fs": "~1.1.1",
-    "koa": "~0.13.0",
+    "commander": "~2.3.0",
+    "highlight.js": "~8.8.0",
+    "koa": "~1.0.0",
     "koa-bodyparser": "~2.0.0",
-    "koa-static": "1.4.6",
+    "koa-qs": "~2.0.0",
+    "koa-ready": "^1.0.0",
     "koa-router": "~4.3.2",
-    "marked": "0.3.1",
-    "highlight.js": "*"
+    "koa-static": "1.4.6",
+    "marked": "0.3.1"
   },
   "devDependencies": {
     "debug": "*",

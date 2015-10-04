@@ -5,7 +5,7 @@
 var program = require('commander');
 program
   .option('-c, --no-cache', 'cache markdown html')
-  .option('-u, --proxyUrl', 'static proxy url')
+  .option('-u, --proxyUrl [url]', 'static proxy url')
   .option('-p, --port [port]', 'serve port', Number, 3000)
   .parse(process.argv);
 
@@ -13,6 +13,8 @@ program.cwd = process.cwd();
 
 var app = require('..')(program);
 
-app.listen(program.port, function() {
-  console.log('server start. port: %s', program.port);
+app.ready(function() {
+  app.listen(program.port, function() {
+    console.log('server start. port: %s', program.port);
+  });
 });

@@ -6,7 +6,7 @@
 # install
 
 ```bash
-npm install -g ss
+npm i -g ss
 ```
 
 ## License
