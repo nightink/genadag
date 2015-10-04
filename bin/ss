@@ -6,7 +6,7 @@ var program = require('commander');
 program
   .option('-c, --no-cache', 'cache markdown html')
   .option('-u, --proxyUrl [url]', 'static proxy url')
-  .option('-p, --port [port]', 'serve port', Number, 3000)
+  .option('-p, --port [port]', 'serve port', Number, 8001)
   .parse(process.argv);
 
 program.cwd = process.cwd();
