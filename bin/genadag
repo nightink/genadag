@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+'use strict';
+
+const program = require('commander');
+const master = require('../lib/cluster');
+
+program
+  .option('--no-cache', 'cache markdown html')
+  .option('--proxyUrl [url]', 'static proxy url')
+  .option('--port [port]', 'serve port', Number, 8001)
+  .option('--baseDir [path]', 'base dir')
+  .parse(process.argv);
+
+program.baseDir = program.baseDir || process.cwd();
+
+master.startCluster(program);

@@ -1,4 +1,10 @@
 
+0.0.4 / 2015-10-05
+==================
+
+  * feat: rename repo to genadag
+  * feat: simple cluster
+
 0.0.3 / 2015-10-04
 ==================
 

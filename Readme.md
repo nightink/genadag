@@ -1,12 +1,12 @@
 
-# ss
+# genadag
 
   simple serve
 
 # install
 
 ```bash
-npm i -g ss
+npm i -g genadag
 ```
 
 ## License
