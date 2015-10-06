@@ -2,11 +2,11 @@
   "name": "genadag",
   "version": "0.0.5",
   "description": "simple serve",
+  "author": "nightink<chceyes@gmail.com>",
   "keywords": [
     "serve",
     "markdown"
   ],
-  "author": "nightink<chceyes@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git@github.com:nightink/genadag.git",
@@ -32,11 +32,14 @@
   "devDependencies": {
     "mocha": "*",
     "should": "*",
-    "supertest": "1"
+    "supertest": "*"
+  },
+  "engines": {
+    "node": ">= 2.0.0"
   },
   "files": [
-    "bin/",
-    "lib/"
+    "bin",
+    "lib"
   ],
   "license": "MIT",
   "scripts": {
