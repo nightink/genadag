@@ -1,4 +1,9 @@
 
+0.0.7 / 2015-10-08
+==================
+
+  * fix: graceful error arguments throwErrorCount not define
+
 0.0.6 / 2015-10-06
 ==================
 
