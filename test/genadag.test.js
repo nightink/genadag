@@ -3,12 +3,13 @@
 var debug = require('debug')('ss:test');
 var request = require('supertest');
 
+const baseDir = process.cwd();
 var app = require('..')({
   proxyUrl: false,
-  cwd: process.cwd()
+  baseDir,
 });
 
-describe('ss', function(){
+describe('genadag', function(){
   before(function() {
     app.post('/test', function* () {
       var body = this.request.body;

@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "mocha": "*",
+    "semantic-release": "^15.13.24",
     "should": "*",
     "supertest": "*"
   },
@@ -41,8 +42,19 @@
     "bin",
     "lib"
   ],
+  "release": {
+    "branche": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
   "license": "MIT",
   "scripts": {
-    "test": "mocha --require should --reporter spec"
+    "test": "mocha --require should --reporter spec",
+    "ci": "npm run test",
+    "semantic-release": "semantic-release"
   }
 }
